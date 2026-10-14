@@ -15,4 +15,4 @@ echo "PID of the command running in background : $!"
 wait $! # scripts waits until $! command complete
 echo "Line number : $LINENO"
 echo "previous command exit status :$?"
-echo "Total time execute for this script: $SECOND"
+echo "Total time execute for this script: $SECONDS"
