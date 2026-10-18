@@ -19,8 +19,6 @@ fi
 
 # even numbwe finding 
 
-
-
 echo "Enter a number"
 read num
 
@@ -30,3 +28,4 @@ then
 else
     echo "Odd"
 fi
+echo "End"
