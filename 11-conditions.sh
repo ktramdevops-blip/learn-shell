@@ -9,6 +9,9 @@ if [ $user_id -ne 0 ]; then
     echo "Please run this script with sudo access..."
     exit 1
 fi
+#condition fail so we can run the root user 
+#sudo su -
+
 
 # Install Nginx
 echo "Proceeding..."
@@ -33,4 +36,4 @@ else
 fi
 
 # Final message
-echo "Still proceeded..."
+echo "Still proceeded....."
