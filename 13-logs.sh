@@ -1,7 +1,7 @@
 #!/bin/bash
 
 logs_folder="/var/log/shell-practice"
-logs_file="$(logs_folder)/${0}.log"
+logs_file="$logs_folder/${0}.log"
 
 
 if [ "$(id -u)" -ne 0 ]; then
@@ -23,7 +23,7 @@ validate() {
 
 
 dnf install nginx -y &>>$logs_file
-# here u get out put right u need to print screen or not it hug 
+# here u get out put right?, u need to print screen or not it hug 
 #and clumgy right so no need  
 validate "$?" "Nginx installation"
 
