@@ -9,7 +9,7 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 mkdir -p $logs_folder
-echo "Script started execution at $(date '+%F %T')"
+echo "Script started execution at $(date '+%F %T')" &>>$logs_file
 validate() {
     if [ "$1" -ne 0 ]; then
         echo "$2....FAILED" | tee -a logs_file
@@ -19,7 +19,7 @@ validate() {
     fi
 }
 
-echo "Proceeding..."
+
 
 
 dnf install nginx -y &>>$logs_file
@@ -29,6 +29,6 @@ validate "$?" "Nginx installation"
 
 dnf install mysql -y &>>$logs_file
 validate "$?" "MySQL installation"
-echo "Script execution completed at $(date '+%F %T')"
+echo "Script execution completed at $(date '+%F %T')" &>>$logs_file
 
 echo "Still proceeding..."
