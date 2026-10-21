@@ -1,7 +1,7 @@
 #!/bin/bash
 
 logs_folder="/var/log/shell-practice"
-logs_file="$(log_folder)/${0}.log"
+logs_file="$(logs_folder)/${0}.log"
 
 
 if [ "$(id -u)" -ne 0 ]; then
