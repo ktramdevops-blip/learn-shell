@@ -21,7 +21,7 @@ validate() {
 for package in "$@"
 do
 dnf installed $package &>>$logs_file
-if[$? -ne 0];then
+if [$? -ne 0]; then
     echo "going to install ${package}"
 else
     echo "${package} is already installed SKIPPING"
