@@ -20,15 +20,16 @@ validate() {
 
 for package in "$@"
 do
-dnf installed $package &>>$logs_file
-if [$? -ne 0]; then
-    echo "going to install ${package}"
-    dnf install ${package} -y>>$logs_file
-    validate $? "installing ${package}"
-else
-    echo "${package} is already installed SKIPPING"
-fi        
+    dnf list installed "$package" &>> "$logs_file"
 
+    if [ $? -ne 0 ]; then
+        echo "Going to install ${package}"
+
+        dnf install "$package" -y &>> "$logs_file"
+        validate $? "Installing ${package}"
+    else
+        echo "${package} is already installed. SKIPPING"
+    fi
 done
 
 #to run this code sudo sh 15-loops.sh nginx mysql
