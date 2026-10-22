@@ -6,6 +6,8 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m" 
 N="\e[0m" 
+trap'echo "Error at $LINENO",command: "$BASH_COMMAND"' ERR
+
 
 if [ "$(id -u)" -ne 0 ]; then
     echo "Please run the script with sudo access!"
