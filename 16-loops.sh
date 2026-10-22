@@ -23,11 +23,11 @@ do
 dnf installed $package &>>$logs_file
 if [$? -ne 0]; then
     echo "going to install ${package}"
+    dnf install ${package} -y>>$logs_file
+    validate $? "installing ${package}"
 else
     echo "${package} is already installed SKIPPING"
 fi        
-dnf install ${package} -y>>$logs_file
-validate $? "installing ${package}"
 
 done
 
